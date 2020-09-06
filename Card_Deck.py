@@ -61,6 +61,26 @@ class Player(object):
     def discard(self):
         return self.hand.pop()
 
+    '''Object for Player 2'''
+
+
+class PlayerTwo(object):
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
+
+    def draw(self, deck):
+        self.hand.append(deck.draw())
+        return self
+
+    def showHand(self):
+        print(self.name, "hand")
+        for card in self.hand:
+            card.show()
+
+    def discard(self):
+        return self.hand.pop()
+
 
 '''Driver for card game'''
 
@@ -72,6 +92,14 @@ def main():
     dan = Player("Dan")
     dan.draw(deck).draw(deck).draw(deck).draw(deck).draw(deck).draw(deck).draw(deck)
     dan.showHand()
+
+    print("----------------------")
+
+    beck = PlayerTwo("Beck")
+    beck.draw(deck).draw(deck).draw(deck).draw(deck).draw(deck).draw(deck).draw(deck)
+    beck.showHand()
+
+
 
 
 main()
